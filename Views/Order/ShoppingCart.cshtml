@@ -1,0 +1,115 @@
+﻿@model VanillaMovieShop.Models.ViewModels.CartVM
+
+@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+
+<section class="vh-100" style="background-color: mintcream ;">
+
+    <br />
+    <h1 class="text-center">Your Shopping Cart</h1><br />
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-md-2 col-lg-2 col-xl-2 bg-warning-subtle">
+
+                </th>
+
+                <th class="bg-warning-subtle">
+                    Movie Title
+                </th>
+
+                <th class="col-md-3 col-lg-3 col-xl-2 bg-warning-subtle">
+                    Quantity
+                </th>
+
+                <th class="bg-warning-subtle">
+                    Subtotal
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row">
+                @foreach (var item in @Model.CartItems)
+                {
+                <tr>
+                    <td class="col-md-2 col-lg-2 col-xl-2 text-center">
+                        <img class="img-fluid rounded-3" src="/images/@item.Movie.Image" style="height:100px " alt="Image">
+
+                    </td>
+
+                    <td>
+                            @item.Movie.Title <br />
+                        <strong>@item.Movie.Price Kr</strong>
+                    </td>
+
+                    <td class="col-md-2 ">
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark px-2"
+                                onclick="MinusItem(@item.Movie.Id)">
+                            <i class="fa fa-minus"></i>
+                        </button>
+
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark px-2">
+                                @item.Quantity
+                        </button>
+
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-dark px-2 "
+                                onclick="PlusItem(@item.Movie.Id)">
+                            <i class="fa fa-plus "></i>
+                        </button>
+
+                    </td>
+
+                    <td>
+                            @item.Subtotal Kr
+                    </td>
+                </tr>
+
+
+                }
+            <td colspan="2" class="text-center">    </td>
+            <td  class="text-center">
+                <strong> @Html.DisplayNameFor(model => model.Total) : </strong>
+            </td>
+
+            <td> 
+            <strong>  @Html.DisplayFor(model => model.Total) kr </strong>
+            </td>
+            
+        </tr>
+
+        </tbody>
+
+
+    </table>
+    <table>
+
+        
+        <td class="col-10 "></td>
+        
+        <td>
+            <div class="card">
+                <div class="card-body end-50">
+                    <a asp-action="PlaceOrder" asp-route-id="@Model.Id" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg">Proceed to Pay</a>
+                   
+                </div>
+            </div>
+        </td>
+        
+
+    </table>
+   
+
+    <br />
+    <div class="p-3">
+        
+        <a asp-controller="Movies" asp-action="Index">Continue Shop</a>
+    </div>
+
+</section>
+
+

@@ -1,0 +1,119 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+body {
+    font-family: 'Century Gothic''Montserrat''fa-times';
+    font-style: Italic;
+    background-image: url("https://i.pinimg.com/originals/dd/5a/6b/dd5a6bebdb5854f9d988abd62ec8e121.jpg");
+    opacity: 0.9;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
+.icon-cart{
+
+}
+
+header .icon-cart {
+    position: relative;
+}
+
+header .icon-cart span {
+    display: flex;
+    width:20px;
+    height:20px;
+    background-color: red;
+    justify-content:center;
+    align-items: center;
+    color: white;
+    border-radius: 50%;
+    position:absolute;
+    top:50%;
+    right:-20px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .column {
+        flex: 46%;
+        max-width: 46%;
+    }
+}
+
+.card {
+    opacity: 0.9;
+    filter: alpha (opacity=60);
+}
+
+.card-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.modal-header {
+    background-image: linear-gradient(#7FDBFF,white);
+}
+
+.modal-footer {
+    background-image: linear-gradient(white,#7FDBFF);
+}
+
+#left-panel-link {
+    position: relative;
+    left: 5%;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#right-panel-link {
+    position: absolute;
+    right: 10%;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sep {
+    height: 25px;
+}

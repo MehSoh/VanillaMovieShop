@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VanillaMovieShop.Models.Db.Movie>
+
+<div class="container">
+    <div class="row gy-4">
+        @* card-deck *@
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-2 card m-3">
+                <img class="p-2 mt-2 card-img-top" src="/Images/@item.Image" style="height:250px"  alt="Image">
+                @* @Html.DisplayFor(modelItem => item.Image)  *@
+
+                <div class="card-body">
+
+                    @Html.DisplayNameFor(model => model.Title)         : @Html.DisplayFor(modelItem => item.Title)<br />
+                    @Html.DisplayNameFor(model => model.Director)      : @Html.DisplayFor(modelItem => item.Director)<br />
+                    @Html.DisplayNameFor(model => model.ReleaseYear)   : @Html.DisplayFor(modelItem => item.ReleaseYear)<br />
+                    @Html.DisplayNameFor(model => model.Price)         : @Html.DisplayFor(modelItem => item.Price)<br />
+                    @Html.DisplayNameFor(model => model.Genre)         : @Html.DisplayFor(modelItem => item.Genre)<br />
+                    @Html.DisplayNameFor(model => model.Actors)        : @Html.DisplayFor(modelItem => item.Actors)<br />
+
+                </div>
+                <button class="btn btn-primary" onclick="AddToCart(@item.Id)">Add to cart</button><br />
+               @*  <form asp-action="AddToCart">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Add to Cart" class="btn btn-success" />
+                </form> *@
+  </div>
+}
+  </div>
+</div>
+@* <script>
+  
+            function AddToCart(movieId) {
+                $.ajax({
+                    type: 'post',
+                    url: '/Order/AddToCart',
+                    dataType: 'json',
+                    data: { id: movieId },
+                    success: function (count) {
+                        $('#cartCount').html(count);
+                    }
+                })
+            }
+</script> *@
